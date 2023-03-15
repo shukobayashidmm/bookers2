@@ -1,0 +1,4 @@
+  <h3>name：<%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image %>
+  <p>introduction：<%= @user.introduction %></p>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>

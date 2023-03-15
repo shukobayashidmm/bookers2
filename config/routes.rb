@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/top'
   root to: "homes#top"
   get 'homes/about' => 'homes#about'
   resources :books
