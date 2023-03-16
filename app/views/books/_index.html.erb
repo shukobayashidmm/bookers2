@@ -1,7 +1,7 @@
 <h1>Books</h1>
 
 <% books.each do |book| %>
-
+ <span><%= image_tag @user.get_profile_image %></span>
  <span><%= link_to book.title, book_path(book.id) %></span>
  <span><%= book.body %></span>
 

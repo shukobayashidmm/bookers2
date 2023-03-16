@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+    before_action :authenticate_user!
+
+
   def new
     @books = Book.all
     @book = Book.new
@@ -24,7 +27,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @newbook = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
   end
@@ -45,11 +47,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
-       @book = Book.find(params[:id])
-    if @book.destroy
-      flash[:notice]="Book was successfully destroyed."
-      redirect_to books_path
-    end
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to "/books"
   end
 
   private
