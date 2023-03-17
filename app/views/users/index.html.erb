@@ -20,7 +20,7 @@
           <tr>
             <td><%= image_tag user.get_profile_image %></td>
             <td><%= user.name %></td>
-            <td><%= link_to "Show", "/books/#{@book.id}" %></td>
+            <td><%= link_to "Show", "/users/#{user.id}" %></td>
           </tr>
           <% end %>
         </tbody>
