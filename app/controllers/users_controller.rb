@@ -15,18 +15,17 @@ end
 
   def edit
     @user = User.find(params[:id])
-    if @user == current_user
-        render "edit"
-    else
-      redirect_to user_path(current_user)
+    unless @user == current_user
+      redirect_to  books_path(current_user)
     end
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user == current_user
+      @user.update(user_params)
       flash[:notice]="You have updated user successfully."
-      redirect_to user_path(current_user)
+      redirect_to user_path(@user.id)
     else
       render :edit
     end
